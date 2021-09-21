@@ -2,36 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible">
-    <meta name="viewport"wp-content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="main1.css">
 </head>
-<body>
+<body onload="startTime()"></body>
     <!-- <p>2021-09-16</p> -->
     <!-- <p id="sodiena" style="color: rgb(12, 12, 14);background-color:rgb(229, 196, 151);">16/9/2021 21:39</p> -->
     <h3>Mans pulkstenis</h3>
-    <div><p id="demo" style="color: rgb(1, 10, 14);background-color: rgb(199, 132, 216);"></p>
-    </div>
-    <script>
-    document.getElementById("demo").innerHTML =
-new Date("2021-09-21T02:10:00-06:00");
-
-</script>
+    <div id="txt" style="color:rgb(7, 6, 6);background-color:rgb(230, 219, 200);"></div>
     <style>
-    div {
-        height: 100px;
-        width: 300px;
-         }
+        div {
+           width: 80px;;height:auto;
+        }
     </style>
+    <script>
+        function startTime() {
+          const today = new Date();
+          let h = today.getHours();
+          let m = today.getMinutes();
+          let s = today.getSeconds();
+          m = checkTime(m);
+          s = checkTime(s);
+          document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
+          setTimeout(startTime, 1000);
+        }
+        function checkTime(i) {
+          if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+          return i;
+        }
+    </script>
+  
     <style>
     body{
         background-color: rgb(231, 243, 57);
     }
     </style>
     <script>
+        console.log ("Sveiki dialogs")
         // console.log("SVEIKI shodien!!!")
-        alert("Sveiki dialoga!!!!!")
+        // alert("Sveiki dialoga!!!!!")
     </script>
 </body>
     </html>
